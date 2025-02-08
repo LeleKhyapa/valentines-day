@@ -31,10 +31,11 @@
       <div class="three">
         <p>Since it is Valentine's day,<br>I thought I'd -</p>
       </div>
-      <audio id="audio" controls muted autoplay>
+      <audio id="audio" controls muted>
             <source src="./song/song.mp3" type="audio/mp3">
 <!--             Your browser does not support the audio element. -->
       </audio>
+      <button id="playButton">Play Audio</button>
       <div class="four">
         <div class="text-box">
           <p class="hbd-chatbox">
@@ -129,19 +130,14 @@
       </div>
     </div>
     <script>
-   
-      function playAudioAfterDelay(delay) {
-          setTimeout(function() {
-              var audio = document.getElementById("audio");
-              audio.muted = false;
-              audio.play().catch(function(error) {
-                  console.error("Error playing audio:", error);
-              });
-          }, delay);
-      }
-
-      playAudioAfterDelay(1000); 
-  </script>
+      document.getElementById('playButton').addEventListener('click', function() {
+        var audio = document.getElementById("audio");
+        audio.muted = false;
+        audio.play().catch(function(error) {
+            console.error("Error playing audio:", error);
+        });
+      });
+</script>
     
   </body>
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
