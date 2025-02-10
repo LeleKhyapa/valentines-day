@@ -131,13 +131,19 @@
     </div>
     
     <script>
-        var audio = document.getElementById("audio");
-        audio.muted = false;
-        audio.play().catch(function(error) {
-            console.error("Error playing audio:", error);
-        });
-     
-</script>
+   
+      function playAudioAfterDelay(delay) {
+          setTimeout(function() {
+              var audio = document.getElementById("audio");
+              audio.muted = false;
+              audio.play().catch(function(error) {
+                  console.error("Error playing audio:", error);
+              });
+          }, delay);
+      }
+
+      playAudioAfterDelay(1000); 
+  </script>
     
   </body>
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
